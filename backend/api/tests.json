@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "name": "Get user servers",
+      "method": "GET",
+      "path": "/?path=servers",
+      "headers": {
+        "X-Auth-Token": "valid-token-here"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "servers": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Create new server",
+      "method": "POST",
+      "path": "/?path=servers",
+      "headers": {
+        "X-Auth-Token": "valid-token-here"
+      },
+      "body": {
+        "name": "Test Server",
+        "icon": "🎮"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "server": {
+          "id": "number",
+          "name": "string",
+          "icon": "string"
+        }
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
